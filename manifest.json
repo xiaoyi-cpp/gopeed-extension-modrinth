@@ -1,0 +1,58 @@
+{
+  "name": "modrinth-downloader",
+  "author": "xiaoyi",
+  "title": "Modrinth 下载器",
+  "description": "把 Modrinth 项目页面解析成下载任务（mod / 插件 / 资源包 / 光影 / 整合包）",
+  "icon": "icon.png",
+  "version": "1.0.0",
+  "homepage": "https://github.com/xiaoyi-cpp/gopeed-extension-modrinth",
+  "repository": {
+    "url": "https://github.com/xiaoyi-cpp/gopeed-extension-modrinth"
+  },
+  "scripts": [
+    {
+      "event": "onResolve",
+      "match": {
+        "urls": ["*://modrinth.com/*"]
+      },
+      "entry": "index.js"
+    }
+  ],
+  "settings": [
+    {
+      "name": "gameVersion",
+      "title": "游戏版本",
+      "description": "例如 1.21.1。留空 = 不过滤",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "loader",
+      "title": "加载器",
+      "description": "fabric / forge / neoforge / quilt。留空 = 不过滤",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "latestOnly",
+      "title": "只下最新版",
+      "description": "开启后只解析最新一个版本的文件",
+      "type": "boolean",
+      "value": true
+    },
+    {
+      "name": "includeBeta",
+      "title": "包含测试版",
+      "description": "开启后会包含 beta 和 alpha 版本",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "useProxy",
+      "title": "下载代理前缀",
+      "description": "可选。例如 https://gh-proxy.com/ （对 Modrinth 一般不需要）",
+      "type": "string",
+      "value": ""
+    }
+  ]
+}
